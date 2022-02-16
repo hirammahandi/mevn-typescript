@@ -1,17 +1,13 @@
 import { Router } from "express";
+import * as tasksCtrl from "../controllers/task.controller";
 const router = Router();
 
-router
-  .route("/")
-  .get((req, res) => {
-    res.json({ success: true, msg: "get todos" });
-  })
-  .post((req, res) => res.send("post task"));
+router.route("/").get(tasksCtrl.geTasks).post(tasksCtrl.createTask);
 
 router
   .route("/:id")
-  .get((req, res) => res.send("get one task"))
-  .put((req, res) => res.send("update a task"))
-  .delete((req, res) => res.send("delete a task"));
+  .get(tasksCtrl.getOneTask)
+  .put(tasksCtrl.updateTask)
+  .delete(tasksCtrl.deleteTask);
 
 export default router;

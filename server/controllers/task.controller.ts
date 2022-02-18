@@ -67,7 +67,7 @@ export const updateTask: ApiHandler = async (req, res) => {
       return res
         .status(400)
         .json({ success: false, msg: "Does not exists any task with that id" });
-    return res.json({ success: false, task });
+    return res.json({ success: true, task });
   } catch (error) {
     console.error(error);
     if (error instanceof Error.CastError)
@@ -88,7 +88,7 @@ export const deleteTask: ApiHandler = async (req, res) => {
         success: false,
         msg: "Does not exists any task with that id",
       });
-    return res.json({ success: false, task });
+    return res.json({ success: true, task });
   } catch (error) {
     console.error(error);
     if (error instanceof Error.CastError)

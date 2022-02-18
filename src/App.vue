@@ -1,29 +1,34 @@
 <!-- html component -->
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+  <Navbar />
+  <router-view />
 </template>
 
 <!--component's logic -->
 <script lang="ts">
 import { defineComponent } from "vue";
-import HelloWorld from "./components/HelloWorld.vue";
-
+import Navbar from "./components/Navbar.vue";
 export default defineComponent({
-  name: "App",
-  components: {
-    HelloWorld,
-  },
+  name: "App", //To name a component, use the "name" property.
+  components: { Navbar }, // To use a component, use the "component" property
 });
 </script>
 <!-- component's styles -->
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+html {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #393838;
+  color: #fff;
 }
 </style>
